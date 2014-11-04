@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="blogApp">
 <head lang="en">
     <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -8,8 +8,10 @@
 
     <meta charset="UTF-8">
     <title>TestPage</title>
+    <script type="text/javascript" src="bower_components/angularjs/angular.js"></script>
+    <script type="text/javascript" src="js/controllers.js"></script>
 </head>
-<body>
+<body ng-controller="PostHeroCtrl">
 <div class="container">
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="container-fluid">
@@ -25,42 +27,19 @@
         </div>
     </nav>
     <div class="box-wrapper">
-        <div class="box">
+        <div class="box" ng-repeat="post in posts" >
             <div class="box-inner-content">
-                <img src="assets/flight.jpg">
+                <img ng-src={{post.imageUrl}}>
             </div>
             <span class="box-description">
-                <label class="box-label">Travel</label>
+                <span class="badge alert-danger">{{post.title}}</span>
                 <span class="social">
 
                 </span>
             </span>
         </div>
-        <div class="box">
-            <div class="box-inner-content">
-                This is a box
-            </div>
-            <span class="box-description">
-                <label>Description</label>
-            </span>
-        </div>
-        <div class="box">
-            <div class="box-inner-content">
-                This is a box
-            </div>
-        <span class="box-description">
-            <label>Description</label>
-        </span>
-        </div>
-        <div class="box">
-            <div class="box-inner-content">
-                This is a box
-            </div>
-        <span class="box-description">
-            <label>Description</label>
-        </span>
-        </div>
     </div>
+
     <div id="fixedsocial">
         <div class="twitter-hover social-slide"></div>
         <div class="facebook-hover social-slide"></div>
@@ -69,7 +48,6 @@
     </div>
 
 </div>
-
 
 </body>
 </html>
