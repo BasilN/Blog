@@ -1,0 +1,118 @@
+.box{
+    width:30%;
+    padding-bottom:30%;
+    color: #f7f7f7;
+    position: relative;
+    border: 0px solid;
+    border-radius: 6px 6px 0 0;
+    float: left;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+
+
+}
+.box-wrapper :nth-child(3n+3) { margin-right: 0;}
+.box-inner-content {
+    position: absolute;
+    left: 1px;
+    right:1px;
+    top: 1px;
+    bottom: 1px;
+    padding: 0px;
+    background: #E6E6E6;
+
+}
+.box-inner-content img{
+    width:100%;
+    height:100%;
+}
+
+.box-description{
+    position: absolute;
+    bottom:0px;
+    width: 100%;
+    height:25%;
+    background-color: #FFFFFF;
+}
+
+.box-label{
+    color: #ff6718;
+    font-style: italic;
+    font-weight: 100;
+}
+
+.social {
+    color: blue;
+    float: right;
+    position: absolute;
+    bottom: 0;
+    right: 1%;
+}
+
+.box-wrapper{
+    overflow: hidden;
+}
+html, body{
+    height: 100%;
+    display:block;
+    background-color: #f7f7f7;
+    margin-top: 1em;
+    font-family: 'Lora', serif;
+}
+
+#fixedsocial {
+    top:30%;
+    height:200px;
+    width:60px;
+    position:fixed;
+    right: 0;
+}
+
+.social-slide {
+    height: 48px;
+    width: 48px;
+    margin: 10px;
+    float: left;
+    -webkit-transition: all ease 0.3s;
+    -moz-transition: all ease 0.3s;
+    -o-transition: all ease 0.3s;
+    -ms-transition: all ease 0.3s;
+    transition: all ease 0.3s;
+}
+.social-slide:hover {
+    background-position: 0px -48px;
+    box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.8);
+}
+.twitter-hover {
+    background-image: url('../assets/social/twitter-hover.png');
+    width:100%;
+}
+.facebook-hover {
+    background-image: url("../assets/social/facebook-hover.png");
+}
+.google-hover {
+    background-image: url('../assets/social/google-hover.png');
+}
+.pinterest-hover {
+    background-image: url('images/pinterest-hover.png');
+}
+.linkedin-hover {
+    background-image: url('../assets/social/linkedin-hover.png');
+}
+/*
+.tumblr-hover {
+    background-image: url('images/tumblr-hover.png');
+}
+.reddit-hover {
+    background-image: url('images/reddit-hover.png');
+}
+.instagram-hover {
+    background-image: url('images/instagram-hover.png');
+}
+.stumbleupon-hover {
+    background-image: url('images/stumbleupon-hover.png');
+}*//*
+
+
+
