@@ -39,7 +39,7 @@
                 <span class="date">
                 </span>
                 <span ng-repeat="flag in post.flags">
-                    <img src="assets/blank.gif" class="flag flag-ke" alt="Kenya" />
+                    <img src="assets/blank.gif" class="{{flag.css}}" alt="{{flag.alt}}" />{{$last ? '' : '->'}}
                 </span>
             </span>
         </div>
