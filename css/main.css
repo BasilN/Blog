@@ -34,6 +34,7 @@
     width: 100%;
     height:25%;
     background-color: #FFFFFF;
+    padding-left: 4px;
 }
 
 .box-label{
@@ -98,6 +99,15 @@ html, body{
     width:60px;
     position:fixed;
     right: 0;
+}
+
+.title{
+    display: block;
+    margin:2px 0 2px 0;
+}
+
+.flags{
+    padding-left:4px;
 }
 
 .social-slide {

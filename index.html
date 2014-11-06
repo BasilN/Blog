@@ -5,6 +5,8 @@
     <title>TestPage</title>
     <!--styles-->
     <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="css/flags.css">
@@ -34,11 +36,10 @@
                 <img ng-src={{post.imageUrl}}>
             </div>
             <span class="box-description">
-                <span class="badge alert-danger">{{post.title}}</span>
-                <span class="date">
-                </span>
-                <span ng-repeat="flag in post.flags">
-                    <img src="assets/blank.gif" class="{{flag.css}}" alt="{{flag.alt}}" />{{$last ? '' : '->'}}
+                <h4 class="title"><span class="label alert-danger">{{post.title}}</span></h4>
+
+                <span  ng-repeat="flag in post.flags">
+                    <img src="assets/blank.gif" class="{{flag.css}}" alt="{{flag.alt}}" />
                 </span>
             </span>
         </div>
