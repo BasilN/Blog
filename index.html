@@ -14,6 +14,7 @@
     <!--le scripts-->
     <script type="text/javascript" src="bower_components/angularjs/angular.js"></script>
     <script type="text/javascript" src="js/controllers.js"></script>
+    <script type="text/javascript" src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
 </head>
 <body ng-controller="PostHeroCtrl">
 <div class="container">
@@ -24,33 +25,14 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="#" >Home</a></li>
+                    <li><a ui-sref="home" >Home</a></li>
+                    <li><a ui-sref="maps" >Maps</a></li>
 
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="box-wrapper">
-        <div class="box" ng-repeat="post in posts" >
-            <div class="box-inner-content">
-                <img ng-src={{post.imageUrl}}>
-            </div>
-            <span class="box-description">
-                <h4 class="title"><span class="label alert-danger">{{post.title}}</span></h4>
-
-                <span  ng-repeat="flag in post.flags">
-                    <img src="assets/blank.gif" class="{{flag.css}}" alt="{{flag.alt}}" />
-                </span>
-            </span>
-        </div>
-    </div>
-
-    <div id="fixedsocial">
-        <div class="twitter-hover social-slide"></div>
-        <div class="facebook-hover social-slide"></div>
-        <div class="linkedin-hover social-slide"></div>
-        <div class="google-hover social-slide"></div>
-    </div>
+    <div ui-view></div>
 
 </div>
 

@@ -1,7 +1,22 @@
 /**
  * Created by Basil on 11/3/2014.
  */
-var blogApp = angular.module('blogApp',[]);
+var blogApp = angular.module('blogApp',['ui.router']);
+
+blogApp.config(function($stateProvider, $urlRouterProvider){
+    //Unmatched urls redirect to main
+    $urlRouterProvider.otherwise("/home");
+
+    $stateProvider
+        .state('main',{
+            url:"/home",
+            templateUrl:"partials/main.html"
+        })
+        .state('maps',{
+            url:"/maps",
+            templateUrl:"partials/maps.html"
+        })
+})
 
 blogApp.controller('PostHeroCtrl', function($scope){
     $scope.posts =[
