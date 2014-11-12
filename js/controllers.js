@@ -20,6 +20,11 @@ blogApp.config(function($stateProvider, $urlRouterProvider){
             url:"/blog",
             templateUrl:"partials/blog.html"
         })
+        .state('blog.trip',{
+            url:"/trip",
+            templateUrl:"partials/trip.html"
+        })
+
 })
 
 blogApp.controller('PostHeroCtrl', function($scope){
@@ -28,4 +33,7 @@ blogApp.controller('PostHeroCtrl', function($scope){
         {'title': 'Layover', 'imageUrl':'assets/comingsoon.jpg','flags':[{'css':'flag flag-us','alt':'us'},{'css':'flag flag-ke','alt':'ke'}]},
         {'title': 'Arrival', 'imageUrl':'assets/comingsoon.jpg','flags':[{'css':'flag flag-us','alt':'us'},{'css':'flag flag-ke','alt':'ke'}]}
     ]
+});
+
+blogApp.controller('postCtrl', function($scope, $state){
 });
