@@ -8,13 +8,17 @@ blogApp.config(function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise("/home");
 
     $stateProvider
-        .state('main',{
+        .state('home',{
             url:"/home",
             templateUrl:"partials/main.html"
         })
         .state('maps',{
             url:"/maps",
             templateUrl:"partials/maps.html"
+        })
+        .state('blog',{
+            url:"/blog",
+            templateUrl:"partials/blog.html"
         })
 })
 
