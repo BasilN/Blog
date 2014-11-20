@@ -4,65 +4,31 @@ var express = require('express'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     path = require('path'),
-    methodOverride = require('method-override');
+    methodOverride = require('method-override'),
+    passport = require('passport');
 
 mongoose.connect('mongodb://basil:node@proximus.modulusmongo.net:27017/itejI3pa');
 /*mongoose.connect('mongodb:localhost/BlogDB');*/
 require('./models/User');
+require('./routes/routes')(app, passport, path);
 var User = mongoose.model('User');
 
 
-console.log(__dirname);
-console.log("asdfasdf");
-
 app.use(express.static(path.resolve('../Public')));
-
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({'extended':'true'}));
 app.use(bodyParser.json());
 
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+//app.use(express.logger('dev'));
+
+// use passport session
+app.use(passport.initialize());
+app.use(passport.session());
 
 
-// routes ==================================
-//==========================================
 
-app.get('/api/users', function(req, res){
-    debugger;
-    User.find(function(err, users){
-        debugger;
-
-        if(err){
-            debugger;
-
-            res.send(err);
-        }
-
-        res.json(users)
-    });
-});
-
-app.post('/api/users', function(req, res){
-    User.create({
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password,
-        username: req.body.username
-    }, function(err, user){
-        if(err)
-            res.send(err);
-
-
-        User.find(function(err, users){
-            if(err)
-                res.send(err);
-            res.json(users)
-        });
-    });
-});
-
-/*app.get("/Public/controllers.js", function (req, res) {
-    res.sendfile("./Public/controllers.js");
-});*/
 app.get('*', function(req, res) {
     res.sendfile(path.resolve('../Public/index.html')); // load the single view file (angular will handle the page changes on the front-end)
 });

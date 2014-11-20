@@ -28,6 +28,10 @@ blogApp.config(function($stateProvider, $urlRouterProvider){
             url:"/users",
             templateUrl:"partials/users.html"
         })
+        .state('login',{
+            url:"/login",
+            templateUrl:"partials/login.html"
+        })
 
 })
 
