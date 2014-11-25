@@ -22,7 +22,8 @@
 	"body-parser":"~1.5.2",
 	"method-override":"~2.1.2",
     "passport": "~0.1.17",
-    "ejs":"~0.8.4"
+    "ejs":"~0.8.4",
+	"ng-table":"0.3.2"
   },
   "homepage": "https://github.com/BasilN/Blog"
 }

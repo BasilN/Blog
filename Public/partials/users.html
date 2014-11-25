@@ -2,6 +2,15 @@
 
     <div id="user-form">
         <form>
+          <p><strong>Page</strong>{{tableParams.page()}}</p>
+          <p><strong>Count per page</strong>{{tableParams.cpunt()}}</p>
+          <table ng-table="tableParams" class="table">
+            <tr ng-repeat="user in users">
+              <td data-title="'Name'">{{user.name}}</td>
+            </tr>
+
+
+          </table>
             <input type="text" ng-model="formData.name">
             <button type="submit" ng-click="CreateUser()">Create User</button>
         </form>

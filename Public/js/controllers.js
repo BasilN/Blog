@@ -1,7 +1,7 @@
 /**
  * Created by Basil on 11/3/2014.
  */
-var blogApp = angular.module('blogApp',['ui.router']);
+var blogApp = angular.module('blogApp',['ui.router', 'ngTable']);
 
 blogApp.config(function($stateProvider, $urlRouterProvider){
     //Unmatched urls redirect to main
@@ -46,18 +46,19 @@ blogApp.controller('PostHeroCtrl', function($scope){
 
 blogApp.controller('UserCtrl', function($scope, $http){
     $scope.formData ={};
+    $scope.users={};
+    GetUsers();
+    $scope.tableParams = new ngtableParams({
+      page:1,
+      count:10
+    },{
+      total: users.length,
+      getData: function($defer, params){
+        $defer.resolve(users.slice((params.page() -1) * params.count(), params.page() * params.count()))
+      }
+    })
     $scope.CreateUser = function(){
-/*        $http.get('/api/users')
-            .success(function(data) {
-                $scope.users = data;
-                debugger;
-                console.log(data);
-            })
-            .error(function(data) {
 
-                debugger;
-                console.log('Error: ' + data);
-            });*/
         $http.post('/api/users', $scope.formData)
             .success(function(data){
                 $scope.formData ={};
@@ -69,6 +70,19 @@ blogApp.controller('UserCtrl', function($scope, $http){
                 debugger;
                 console.log('Error:' + data);
             });
+    }
+    $scope.GetUsers = function(){
+        $http.get('/api/users')
+         .success(function(data) {
+         $scope.users = data;
+         debugger;
+         console.log(data);
+         })
+         .error(function(data) {
+
+         debugger;
+         console.log('Error: ' + data);
+         });
     }
 });
 
