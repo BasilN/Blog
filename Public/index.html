@@ -13,11 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/flags.css">
     <link href='http://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="node_modules/ng-table/ng-table.css">
-    <!--le scripts-->
-    <script type="text/javascript" src="bower_components/angularjs/angular.js"></script>
-    <script type="text/javascript" src="js/controllers.js"></script>
-    <script type="text/javascript" src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script type="text/javascript" src="node_modules/ng-table/ng-table.min.js"></script>
+
 
 </head>
 <body ng-controller="PostHeroCtrl">
@@ -31,7 +27,9 @@
                     <ul class="nav navbar-nav">
                         <li><a ui-sref="home" >Home</a></li>
                         <li><a ui-sref="maps" >Maps</a></li>
-
+                    </ul>
+                    <ul  class="nav navbar-nav pull-right">
+                        <li><a ui-sref="login" >Login</a></li>
                     </ul>
                 </div>
             </div>
@@ -47,4 +45,12 @@
 
     </div>-->
 </body>
+
+<!--le scripts-->
+<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="bower_components/angularjs/angular.js"></script>
+<script type="text/javascript" src="js/controllers.js"></script>
+<script type="text/javascript" src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="node_modules/ng-table/ng-table.min.js"></script>
+<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </html>

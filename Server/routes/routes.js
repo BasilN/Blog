@@ -1,5 +1,5 @@
 
-module.exports = function(app, passport, path){
+module.exports = function(app, passport, path, User){
     app.get('/api/users', function(req, res){
         debugger;
         User.find(function(err, users){

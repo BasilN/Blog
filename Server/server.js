@@ -7,11 +7,12 @@ var express = require('express'),
     methodOverride = require('method-override'),
     passport = require('passport');
 
-mongoose.connect('mongodb://basil:node@proximus.modulusmongo.net:27017/itejI3pa');
+//mongoose.connect('mongodb://basil:node@proximus.modulusmongo.net:27017/itejI3pa');
 /*mongoose.connect('mongodb:localhost/BlogDB');*/
+mongoose.connect('mongodb://basil:node@ds051740.mongolab.com:51740/blogdb');
 require('./models/User');
-require('./routes/routes')(app, passport, path);
 var User = mongoose.model('User');
+
 
 
 app.use(express.static(path.resolve('../Public')));
@@ -26,6 +27,9 @@ app.set('view engine', 'html');
 // use passport session
 app.use(passport.initialize());
 app.use(passport.session());
+
+require('./routes/routes')(app, passport, path, User);
+
 
 
 

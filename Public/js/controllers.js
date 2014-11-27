@@ -44,26 +44,16 @@ blogApp.controller('PostHeroCtrl', function($scope){
 
 });
 
-blogApp.controller('UserCtrl', function($scope, $http){
+blogApp.controller('UserCtrl', function($scope, $http, ngTableParams){
     $scope.formData ={};
     $scope.users={};
-    GetUsers();
-    $scope.tableParams = new ngtableParams({
-      page:1,
-      count:10
-    },{
-      total: users.length,
-      getData: function($defer, params){
-        $defer.resolve(users.slice((params.page() -1) * params.count(), params.page() * params.count()))
-      }
-    })
+
     $scope.CreateUser = function(){
 
         $http.post('/api/users', $scope.formData)
             .success(function(data){
                 $scope.formData ={};
                 $scope.users = data;
-                debugger;
                 console.log(data);
             })
             .error(function(data){
@@ -75,15 +65,23 @@ blogApp.controller('UserCtrl', function($scope, $http){
         $http.get('/api/users')
          .success(function(data) {
          $scope.users = data;
-         debugger;
          console.log(data);
          })
          .error(function(data) {
 
-         debugger;
          console.log('Error: ' + data);
          });
     }
+    $scope.GetUsers();
+    $scope.tableParams = new ngTableParams({
+        page:1,
+        count:10
+    },{
+        total: $scope.users.length,
+        GetUsers: function($defer, params){
+            $defer.resolve($scope.users.slice((params.page() -1) * params.count(), params.page() * params.count()))
+        }
+    })
 });
 
 blogApp.controller('postCtrl', function($scope, $state){
